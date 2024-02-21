@@ -4,7 +4,11 @@ var theTasks = {
   strikethrough : [] //BOOLEAN
 
 };
-
+document.addEventListener("keydown", function(e){
+  if(e.keyCode === 13){
+    addTask()
+  }
+});
 
 function addTask(){
   //console.log(theTasks);
@@ -14,9 +18,11 @@ function addTask(){
   var value1 = input1.value;
 
   //console.log("ADDING:", value1);
-  theTasks.text.push(value1);
-  theTasks.strikethrough.push(false);
-
+  if(value1 !== ""){
+    theTasks.text.push(value1);
+    theTasks.strikethrough.push(false);
+  }
+ 
   console.log("THE OBJECT HAS: ", theTasks);
   //console.log(theTasks);
 
@@ -24,6 +30,8 @@ function addTask(){
   var divElement = document.getElementById("list");
   divElement.innerHTML = "";
   divElement.appendChild(olList);
+
+  input1.value = "";
 }
 
 function addTextToPage(arry){
@@ -36,18 +44,6 @@ function addTextToPage(arry){
      console.log("Adding to list..", arry[i]);
      var item = document.createElement('li');
 
-
-    /*
-    if(theTasks.strikethrough[i] == true){
-
-      item.addEventListener("click", function(){
-      console.log("WE TRYNA STRIKETHROUGH");
-      var itemToStrikethrough = document.querySelector("li");
-      itemToStrikethrough.classList.add("strikethrough");
-      });
-
-    }
-    */
     // Set its contents:
 
      item.appendChild(document.createTextNode(arry[i]));
