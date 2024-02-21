@@ -1,34 +1,33 @@
-console.log("Hello, this is petco");
-var theTasks = [];
-var index = 0;
+//console.log("Hello, this is petco");
+var theTasks = {
+  text : [], //TEXT
+  strikethrough : [] //BOOLEAN
+
+};
+
 
 function addTask(){
-  console.log(theTasks);
-  console.log("BEGINNING TASK ADD");
+  //console.log(theTasks);
+  //console.log("BEGINNING TASK ADD");
 
   var input1 = document.getElementById("newTask");
   var value1 = input1.value;
-  //input1.setText("");
-  console.log("ADDING:", value1);
-  theTasks.push(value1);
-  console.log(theTasks);
-  var olList = addTextToPage(theTasks);
+
+  //console.log("ADDING:", value1);
+  theTasks.text.push(value1);
+  theTasks.strikethrough.push(false);
+
+  console.log("THE OBJECT HAS: ", theTasks);
+  //console.log(theTasks);
+
+  var olList = addTextToPage(theTasks.text);
   var divElement = document.getElementById("list");
-  /*if (document.querySelector('ol')) {
-    console.log("We found a list.")
-    let item = document.createElement('ol');
-    item.innerHTML = theTasks.length + ". " + value1;
-    //item.appendChild(document.createTextNode(value1));
-    divElement.appendChild(item);
-  } else {
-    console.log("We are pushing: ", olList)
-    divElement.appendChild(olList);
-  }*/
+  divElement.innerHTML = "";
   divElement.appendChild(olList);
 }
 
 function addTextToPage(arry){
- 
+
  // Create the list element:
  var list = document.createElement('ol');
 
@@ -37,16 +36,48 @@ function addTextToPage(arry){
      console.log("Adding to list..", arry[i]);
      var item = document.createElement('li');
 
-     // Set its contents:
+
+    /*
+    if(theTasks.strikethrough[i] == true){
+
+      item.addEventListener("click", function(){
+      console.log("WE TRYNA STRIKETHROUGH");
+      var itemToStrikethrough = document.querySelector("li");
+      itemToStrikethrough.classList.add("strikethrough");
+      });
+
+    }
+    */
+    // Set its contents:
+
      item.appendChild(document.createTextNode(arry[i]));
 
      // Add it to the list:
      list.appendChild(item);
  }
 
+ //var items = document.querySelectorAll("#list li");
+
+
+
+var items = document.querySelectorAll('li');
+
+items.forEach(function(){
+
+  item.addEventListener("click", function(){
+
+    console.log("WE TRYNA STRIKETHROUGH");
+    //var itemToStrikethrough = document.querySelector("li");
+    item.classList.add("strikethrough");
+    });
+
+
+
+});
+
+
+
+
  // Finally, return the constructed list:
  return list;
 }
-
-
-
