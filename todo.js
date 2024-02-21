@@ -4,15 +4,26 @@ var index = 0;
 
 function addTask(){
   console.log(theTasks);
-  console.log("BEGGINING TASK ADD");
+  console.log("BEGINNING TASK ADD");
 
   var input1 = document.getElementById("newTask");
   var value1 = input1.value;
+  //input1.setText("");
   console.log("ADDING:", value1);
   theTasks.push(value1);
   console.log(theTasks);
   var olList = addTextToPage(theTasks);
-  var divElement  = document.getElementById("list");
+  var divElement = document.getElementById("list");
+  /*if (document.querySelector('ol')) {
+    console.log("We found a list.")
+    let item = document.createElement('ol');
+    item.innerHTML = theTasks.length + ". " + value1;
+    //item.appendChild(document.createTextNode(value1));
+    divElement.appendChild(item);
+  } else {
+    console.log("We are pushing: ", olList)
+    divElement.appendChild(olList);
+  }*/
   divElement.appendChild(olList);
 }
 

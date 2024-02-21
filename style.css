@@ -1,3 +1,7 @@
 h1 {
   color: purple
 }
+
+#my-list {
+  text-decoration: line-through;
+}
