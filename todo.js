@@ -38,7 +38,7 @@ function addTextToPage(arry){
 
  // Create the list element:
  var list = document.createElement('ol');
-
+ var deleteButton = document.createElement("button");
  for (var i = 0; i < arry.length; i++) {
      // Create the list item:
      console.log("Adding to list..", arry[i]);
@@ -50,6 +50,13 @@ function addTextToPage(arry){
 
      // Add it to the list:
      list.appendChild(item);
+
+    deleteButton.textContent = "x";
+    deleteButton.addEventListener('click', function(){
+      theTasks.text.splice(i,1);
+      theTasks.strikethrough.splice(i,1);
+    })
+
  }
 
  //var items = document.querySelectorAll("#list li");
@@ -61,7 +68,7 @@ var items = document.querySelectorAll('li');
 items.forEach(function(){
 
   item.addEventListener("click", function(){
-
+    
     console.log("WE TRYNA STRIKETHROUGH");
     //var itemToStrikethrough = document.querySelector("li");
     item.classList.add("strikethrough");

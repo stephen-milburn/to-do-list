@@ -1,12 +1,22 @@
 h1 {
   color: purple
 }
-
 #my-list {
   text-decoration: line-through;
 }
-
-
 .strikethrough {
   text-decoration-line: line-through;
+}
+body  {
+  background-color: #FDFD96;
+}
+div {
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  background-color: lightblue;
+}
+li {
+  background-color: #FFB6C1;
 }
